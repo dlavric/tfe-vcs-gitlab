@@ -18,7 +18,7 @@ resource "tfe_oauth_client" "test" {
   organization        = "test"
   api_url             = "https://gitlab.com/api/v4"
   http_url            = "https://gitlab.com"
-  oauth_token         = var.oauth_token_id
+  oauth_token         = var.gitlab_token_id
   service_provider    = "gitlab_hosted"
   organization_scoped = true
 }
@@ -32,7 +32,7 @@ resource "tfe_workspace" "gitlab" {
 
   vcs_repo {
     identifier     = var.repository
-    oauth_token_id = var.oauth_token_id
+    oauth_token_id = tfe_oauth_client.test.oauth_token_id
 
   }
   depends_on = [tfe_oauth_client.test]

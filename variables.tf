@@ -1,4 +1,4 @@
-variable "oauth_token_id" {
+variable "gitlab_token_id" {
   description = "your oauthentication token id for the VCS connection"
 }
 
